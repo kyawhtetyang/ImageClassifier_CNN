@@ -1,13 +1,16 @@
 {
   "train_dir": "data/train",
   "test_dir": "data/test",
-  "img_size": [64, 64],
+  "img_size": [
+    64,
+    64
+  ],
   "batch_size": 32,
-  "epochs": 10,
+  "epochs": 2,
   "limit_train": 100,
   "limit_val": 20,
   "limit_test": 10,
-  "model_type": "transfer",
+  "model_type": "cnn",
   "transfer_model": "MobileNetV2",
   "fine_tune": true,
   "save_model_path": "models/cnn_v0_best.pth",
@@ -17,7 +20,10 @@
   "augmentations": {
     "rotation_range": 20,
     "horizontal_flip": true,
-    "brightness_range": [0.8, 1.2]
+    "brightness_range": [
+      0.8,
+      1.2
+    ]
   },
   "classes": []
 }
