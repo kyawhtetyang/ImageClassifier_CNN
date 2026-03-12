@@ -33,7 +33,6 @@ def evaluate_model(model, test_loader, classes, device: str = "cpu", results_pat
     )
 
     save_json({"confusion_matrix": cm.tolist(), "classification_report": cr}, f"{results_path}/report.json")
-    print("Confusion Matrix:
-", cm)
+    print("Confusion Matrix:\n", cm)
     print("Classification Report saved to report.json")
     return cm, cr

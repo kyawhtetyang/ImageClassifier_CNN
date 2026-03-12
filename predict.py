@@ -26,11 +26,26 @@ def main() -> int:
     num_classes = len(config["classes"])
     model = build_model(config, num_classes)
 
-    try:
-        state_dict = torch.load(config["save_model_path"], map_location=device)
-    except FileNotFoundError:
-        print(f"Model not found: {config['save_model_path']}")
+    model_path = config.get("save_model_path") or ""
+    fallback_path = config.get("save_last_model_path") or ""
+
+    state_dict = None
+    loaded_from = ""
+    for candidate in (model_path, fallback_path):
+        if not candidate:
+            continue
+        try:
+            state_dict = torch.load(candidate, map_location=device)
+            loaded_from = candidate
+            break
+        except FileNotFoundError:
+            continue
+
+    if state_dict is None:
+        print(f"Model not found: {model_path} (or fallback {fallback_path})")
         return 1
+
+    print(f"Loaded model: {loaded_from}")
 
     model.load_state_dict(state_dict)
     model.eval().to(device)

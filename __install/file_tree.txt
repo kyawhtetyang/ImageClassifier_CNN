@@ -1,1 +1,14 @@
 v0/
+├─ modules/
+│   ├─ evaluate.py
+│   ├─ model.py
+│   ├─ preprocess.py
+│   ├─ train.py
+│   └─ utils.py
+├─ .gitignore
+├─ config.json
+├─ main.py
+├─ predict.py
+├─ README.md
+├─ requirements.txt
+└─ runtime.txt
