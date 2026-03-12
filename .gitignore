@@ -1,0 +1,16 @@
+# Data and outputs
+data/
+models/
+plot/
+report/
+
+# Python
+__pycache__/
+.pytest_cache/
+*.pyc
+.venv/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
